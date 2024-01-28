@@ -2,6 +2,12 @@ import { getCategoryDetail, getNewsList } from "@/app/_libs/microcms";
 import NewsList from "@/app/_components/NewsList";
 import Pagination from "@/app/_components/Pagination";
 
+type Props = {
+  params: {
+    id: string;
+  };
+};
+
 export default async function Page({ params }: Props) {
   const category = await getCategoryDetail(params.id);
 
