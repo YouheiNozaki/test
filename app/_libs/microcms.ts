@@ -66,6 +66,11 @@ export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries
       endpoint: 'news',
       contentId,
       queries,
+      customRequestInit: {
+        next: {
+          revalidate: queries?.draftKey === undefined ? 60 : 0,
+        },
+      },
     })
     .catch(notFound);
 
