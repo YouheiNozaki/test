@@ -4,6 +4,7 @@ import Pagination from "@/app/_components/Pagination";
 import SearchField from "@/app/_components/SearchField";
 
 import { NEWS_LIST_LIMIT } from "@/app/_constants";
+import { Suspense } from "react";
 
 export default async function Page() {
   const { contents: articles, totalCount } = await getNewsList({
@@ -12,7 +13,9 @@ export default async function Page() {
 
   return (
     <>
-      <SearchField />
+      <Suspense>
+        <SearchField />
+      </Suspense>
       <NewsList articles={articles} />
       <Pagination totalCount={totalCount} />
     </>
