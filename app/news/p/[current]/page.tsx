@@ -11,7 +11,7 @@ type Props = {
   };
 };
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
   const current = parseInt(params.current as string, 10);
 
   if (Number.isNaN(current) || current < 1) {
